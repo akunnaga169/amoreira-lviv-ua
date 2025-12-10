@@ -1,0 +1,22 @@
+# Konfigurasi backend untuk terhubung ke GitHub
+backend:
+  name: git-gateway
+  repo: akunnaga169/website-berita # <<< GANTI INI!
+  branch: main
+
+# Konfigurasi media (upload gambar)
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
+
+# Konfigurasi untuk tipe konten (berita)
+collections:
+  - name: "post"
+    label: "Berita"
+    folder: "content/post"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Judul", name: "title", widget: "string" }
+      - { label: "Tanggal", name: "date", widget: "datetime" }
+      - { label: "Gambar Utama", name: "image", widget: "image", required: false }
+      - { label: "Isi Berita", name: "body", widget: "markdown" }
