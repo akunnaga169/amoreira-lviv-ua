@@ -1,7 +1,7 @@
 # Konfigurasi backend untuk terhubung ke GitHub
 backend:
   name: git-gateway
-  repo: akunnaga169/website-berita # <<< GANTI INI!
+  repo: akunnaga169/amoreira-lviv-ua # <<< GANTI INI!
   branch: main
 
 # Konfigurasi media (upload gambar)
