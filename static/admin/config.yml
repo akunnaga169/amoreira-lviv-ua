@@ -1,14 +1,10 @@
-# Konfigurasi backend untuk terhubung ke GitHub
 backend:
-  name: git-gateway
-  repo: akunnaga169/amoreira-lviv-ua # <<< GANTI INI!
+  name: github
+  repo: akunnaga169/amoreira-lviv-ua
   branch: main
-
-# Konfigurasi media (upload gambar)
+  base_url: https://api.github.com # Tambahkan baris ini
 media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
-
-# Konfigurasi untuk tipe konten (berita)
 collections:
   - name: "post"
     label: "Berita"
