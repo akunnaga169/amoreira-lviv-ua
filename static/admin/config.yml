@@ -2,7 +2,6 @@ backend:
   name: github
   repo: akunnaga169/amoreira-lviv-ua
   branch: main
-  base_url: https://api.github.com # Tambahkan baris ini
 media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
 collections:
