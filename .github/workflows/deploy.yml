@@ -1,0 +1,59 @@
+# Nama workflow
+name: deploy
+
+# Kapan workflow ini dijalankan? Setiap ada push ke branch 'main'
+on:
+  push:
+    branches:
+      - main
+
+# Izin yang dibutuhkan untuk mempublikasikan ke GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Pekerjaan yang akan dilakukan
+jobs:
+  build:
+    runs-on: ubuntu-latest # Menjalankan di sistem operasi Ubuntu
+    steps:
+      # Langkah 1: Download kode dari repo
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: true # Penting untuk mengambil tema
+          fetch-depth: 0
+
+      # Langkah 2: Setup Hugo
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      # Langkah 3: Bangun website
+      - name: Build website
+        run: hugo --minify
+
+      # Langkah 4: Setup halaman GitHub Pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      # Langkah 5: Upload hasil build (folder 'public')
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: ./public
+
+  # Pekerjaan untuk deploy
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build # Jalankan setelah pekerjaan 'build' selesai
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
