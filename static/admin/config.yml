@@ -1,10 +1,14 @@
+# Konfigurasi backend menggunakan Netlify Identity
 backend:
-  name: github
-  repo: akunnaga169/amoreira-lviv-ua
+  name: git-gateway
   branch: main
-  client_id: Ov23limdVwWuhbmQHmQ7 # <-- GANTI DENGAN CLIENT ID MU
+  # repo tidak diperlukan lagi di sini karena sudah terhubung
+
+# Konfigurasi media (upload gambar)
 media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
+
+# Konfigurasi untuk tipe konten (berita)
 collections:
   - name: "post"
     label: "Berita"
