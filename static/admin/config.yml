@@ -1,14 +1,8 @@
-# Konfigurasi backend menggunakan Netlify Identity
 backend:
   name: git-gateway
   branch: main
-  # repo tidak diperlukan lagi di sini karena sudah terhubung
-
-# Konfigurasi media (upload gambar)
 media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
-
-# Konfigurasi untuk tipe konten (berita)
 collections:
   - name: "post"
     label: "Berita"
