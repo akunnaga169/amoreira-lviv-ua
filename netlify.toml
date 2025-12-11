@@ -1,0 +1,9 @@
+[build]
+  # Perintah untuk membangun website
+  command = "hugo --minify"
+  # Folder hasil build
+  publish = "public"
+
+[build.environment]
+  # Perintah untuk mengunduh dan menggunakan versi Hugo tertentu
+  HUGO_VERSION = "0.124.1"

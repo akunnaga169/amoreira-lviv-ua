@@ -1,7 +1,6 @@
 backend:
   name: git-gateway
   branch: main
-  base_url: https://effulgent-pie-6c6016.netlify.app/ # <-- PASTIKAN INI BENAR!
 media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
 collections:
